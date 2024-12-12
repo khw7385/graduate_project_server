@@ -23,4 +23,8 @@ public class UserQueryPlanInfo {
     public void removeQueryPlan(QueryPlan queryPlan){
         alternativeQueryPlans.remove(queryPlan);
     }
+
+    public int getAlternativeQueryPlanLength(){
+        return alternativeQueryPlans.size();
+    }
 }
