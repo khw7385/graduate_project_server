@@ -19,6 +19,9 @@ public class QueryPlanRepository {
         queryInfoMap.put(userId, new UserQueryPlanInfo());
     }
 
+    public boolean hasUserQueryPlanInfo(String userId){
+        return queryInfoMap.containsKey(userId);
+    }
     public void addQueryPlan(String userId, QueryPlan queryPlan){
         UserQueryPlanInfo userQueryPlanInfo = queryInfoMap.get(userId);
         userQueryPlanInfo.addQueryPlan(queryPlan);
@@ -28,8 +31,13 @@ public class QueryPlanRepository {
         return queryInfoMap.get(userId);
     }
 
+    public void removeUserQueryInfo(String userId){
+        queryInfoMap.remove(userId);
+    }
+
     public void setOptimalQueryPlan(String userId, QueryPlan queryPlan){
         queryPlan.setDistance(0 ,0 ,0);
+        queryPlan.setRelevance(0);
         UserQueryPlanInfo userQueryPlanInfo = queryInfoMap.get(userId);
         userQueryPlanInfo.setOptimalQueryPlan(queryPlan);
         userQueryPlanInfo.setMinCost(queryPlan.getCost());
