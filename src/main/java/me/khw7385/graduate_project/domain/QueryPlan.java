@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Getter
 public class QueryPlan {
-    private double cost;
+    private Double cost;
     private TreeNode root;
     @Setter
     private Type type;
@@ -19,7 +19,8 @@ public class QueryPlan {
     private Double structuralDistance;
     private Double contentDistance;
     private Double costDistance;
-    public QueryPlan(double cost, TreeNode node) {
+    private Double relevance;
+    public QueryPlan(Double cost, TreeNode node) {
         this.cost = cost;
         this.root = node;
         structuralDistance = null;
@@ -40,12 +41,23 @@ public class QueryPlan {
     public List<TreeNode> extractAllSubTrees(){
         return root.extractSubTrees();
     }
+    public List<TreeNode> extractJoinSubTress(){return root.extractJoinSubTrees();}
     public List<String> extractAllContents(){
         contents.addAll(root.extractContents());
         return contents;
     }
+    public void assignRelationNameForAllNodes(){root.assignAllRelationName();}
+    public void extractOperationByRelation(Map<String, String> relationOperationMap){root.extractOperationByRelation(relationOperationMap);}
+
     public static QueryPlan fromMap(Map<String, Object> data){
-        double cost = (Double) data.get("total_cost");
+        double cost;
+        if(data.get("pathtype").equals("Limit")){
+            Map<String, Object> nextData = (Map<String, Object>) data.get("path");
+            cost = (Double)nextData.get("total_cost");
+        }else{
+            cost = (Double) data.get("total_cost");
+        }
+
         return new QueryPlan(cost, TreeNode.fromMap(data));
     }
 
@@ -59,6 +71,9 @@ public class QueryPlan {
         this.costDistance = costDistance;
     }
 
+    public void setRelevance(double relevance){
+        this.relevance = relevance;
+    }
     public enum Type{
         QEP, AQP
     }
