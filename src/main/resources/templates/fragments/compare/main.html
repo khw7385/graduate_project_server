@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>main fragment</title>
+</head>
+<body>
+<div th:fragment="main(data)" class="ms-2 my-2">
+    <link rel="stylesheet" th:href="@{/css/tree.css}"/>
+    <div class="row" style="width: 100%; gap: 50px; box-sizing: border-box">
+        <div class="tree-container col p-5">
+            <div class="tree-content">
+            </div>
+        </div>
+        <div class="tree-container col p-5">
+            <div class="tree-content">
+            </div>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        const compareData = [[${compareData}]];
+        const qep = [[${qep}]];
+        const aqp = [[${aqp}]];
+    </script>
+    <script src="/js/tree.js"></script>
+    <script src="/js/compare/main.js"></script>
+</div>
+
+</body>
+</html>
