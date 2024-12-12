@@ -46,12 +46,14 @@ public class QueryPlanInterestingnessCalculator {
         double distance = calculateDistance(structuralDistance, contentDistance, costDistance);
         double relevanceScore = calculateRelevanceScore(structuralDistance, contentDistance, costDistance);
 
+        if(queryPlan1.getType() == QueryPlan.Type.QEP){
+            queryPlan2.setRelevance(relevanceScore);
+        }else if(queryPlan2.getType() == QueryPlan.Type.QEP){
+            queryPlan1.setRelevance(relevanceScore);
+        }
+
         return distance / 2 + relevanceScore / 2;
     }
-
-    // 일반적인 두 쿼리 계획
-    // 컨텍스트를 저장한다. String userId 를 이용한다.
-    //
 
     public double calculateDistance(double structuralDistance, double contentDistance, double costDistance){
         return (structuralDistance + contentDistance + costDistance) / 3;
