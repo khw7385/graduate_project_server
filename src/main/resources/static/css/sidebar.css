@@ -1,0 +1,18 @@
+.custom-nav-item:hover{
+    background:#f1f9f7;
+}
+
+.scroll-container {
+    position: relative; /* 위치를 상대적으로 설정 */
+    overflow-y: auto;
+}
+
+.scroll-container::-webkit-scrollbar {
+    width: 5px; /* 스크롤바 너비 */
+    position: absolute; /* 스크롤바를 절대 위치로 설정하여 다른 요소 위로 겹치게 함 */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* 스크롤바 썸 색상 */
+    border-radius: 10px;
+}

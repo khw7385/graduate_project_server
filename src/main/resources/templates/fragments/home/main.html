@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>main fragment</title>
+</head>
+<body>
+<div th:fragment="main" class="ms-2 my-2" >
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/tree.css}"/>
+    <script src="/js/home/main.js"></script>
+    <script src="/js/tree.js"></script>
+    <div class="row" style="width: 100%; gap: 300px; box-sizing: border-box">
+        <div class="col" style="flex: 0 0 400px;">
+            <div class="mb-3">
+                <textarea id="sql-textarea" class="form-control" rows="8" cols="90" placeholder="Input your SQL or SELECT an example SQL"></textarea>
+            </div>
+            <div class="mb-3 gap-3">
+                <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select SQL
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="example-sql dropdown-item" href="#" data-sql="SELECT * FROM customer;">Example SQL1</a></li>
+                    <li><a class="example-sql dropdown-item" href="#" data-sql="SELECT * FROM customer c join address a on c.address_id = a.address_id join payment p on c.customer_id = p.customer_id;">Example SQL2</a></li>
+                    <li><a class="example-sql dropdown-item" href="#" data-sql="SELECT * FROM customer c join address a on c.address_id = a.address_id join payment p on c.customer_id = p.customer_id where p.amount < 6;">Example SQL3</a></li>
+                    <li><a class="example-sql dropdown-item" href="#" data-sql="SELECT * FROM customer c join payment p on c.customer_id = p.customer_id where c.last_name like 'F%' ORDER BY c.last_name ASC">Example SQL4</a></li>
+                    <li><a class="example-sql dropdown-item" href="#" data-sql="SELECT rating, avg(length) FROM film f GROUP BY rating;">Example SQL5</a></li>
+                </ul>
+                <button id="run-query" type="button" class="btn btn-success">RUN</button>
+            </div>
+            <div id="plan-table-container" style="flex: 1;">
+            </div>
+        </div>
+        <div class="tree-container col p-5">
+            <div class="tree-content">
+            </div>
+        </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+</div>
+<div th:fragment="erd" class="m-2">
+    <img src="/images/erd-diagram.jpg" width="600px" alt="ERD Diagram" >
+</div>
+
+<Table th:fragment="planTable" class="table table-striped border" id="plan-table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col" style="text-align: center;">S_Distance</th>
+            <th scope="col" style="text-align: center;">C_Distance</th>
+            <th scope="col" style="text-align: center;">Cost</th>
+            <th scope="col" style="text-align: center;">Relevance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="row, rowStat: ${results}" class="click-tr" th:data-index="${rowStat.index}" onclick="handleTrClick(this)">
+            <th scope="row" th:text="${rowStat.index}"></th>
+            <td th:text="${row.sDist}" style="text-align: center;"></td>
+            <td th:text="${row.cDist}" style="text-align: center;"></td>
+            <td th:text="${row.cost}" style="text-align: center;"></td>
+            <td th:text="${row.relevance}" style="text-align: center;"></td>
+        </tr>
+    </tbody>
+</Table>
+</body>
+</html>

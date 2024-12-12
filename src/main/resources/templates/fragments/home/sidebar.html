@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sidebar fragment</title>
+</head>
+<body>
+<aside th:fragment="sidebar" class="sidebar d-flex flex-column flex-shrink-0 align-items-start text-white border-end border-2" style="width: 280px; height: 90vh">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <script src="/js/home/sidebar.js"></script>
+    <div class="scroll-container h-100 w-100">
+        <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="nav-item w-100">
+                <div class="px-3 d-flex align-items-center custom-nav-item" style="height:60px">
+                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link w-100 px-0 align-middle d-flex justify-content-between text-decoration-none text-muted">
+                        <i class="bi bi-database fs-7"></i> <span class="ms-2 fs-7">Database Information</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                    </a>
+                </div>
+                <ul class="collapse nav flex-column ms-1" id="submenu1">
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="/erd" data-dynamic="true" class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">ERD Diagram</a>
+                        </div>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#customer" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">customer</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="attribute collapse nav flex-column" id="customer">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">customer_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">store_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">first_name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">email(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">address_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">activebool(boolean)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">created_date(date)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">active(integer)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#address" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">address</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="address">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">address_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">address(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">address2(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">distinct(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">city_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">postal_code(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">phone(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#city" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">city</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="city">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">city_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">city(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">country_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#country" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">country</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="country">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">country_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">country(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#store" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">store</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="store">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">store_id(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">manager_staff_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">address_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#inventory" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">inventory</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="inventory">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">inventory_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">film_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">store_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#rental" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">rental</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="rental">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">rental_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">rental_date(timestamp)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">inventory_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">customer_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">return_date(timestamp)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">staff_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#payment" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">payment</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="payment">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">payment_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">customer_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">staff_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">rental_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">amounts(numeric)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">payment_date(timestamp)</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#staff" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">staff</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="staff">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">staff_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">first_name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">address_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">email(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">store_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">active(boolean)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">username(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">password(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">picture(bytea)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#actor" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">actor</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="actor">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">actor_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">first_name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#category" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">category</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="category">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">category_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">name(character varying)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#film_category" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">film_category</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="film_category">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">film_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">category_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#film" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">film</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column" id="film">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">description(text)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">release_year(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">language_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">rental_duration(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">rental_rate(numeric)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">length(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">replacement_cost(numeric)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">rating(USER-DEFINED)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">special_features(ARRAY)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">fulltext(tsvector)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#language" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">language</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column ms-1" id="language">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">language_id(integer)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">name(character)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item" style="height:55px">
+                            <a href="#film_actor" data-bs-toggle="collapse" class="nav-link w-100 px-0 d-flex justify-content-between text-decoration-none text-muted fs-7">
+                                <span class="fs-7">film_actor</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                            </a>
+                        </div>
+                        <ul class="collapse nav flex-column ms-1" id="film_actor">
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">actor_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">film_id(smallint)</div>
+                                </div>
+                            </li>
+                            <li class="nav-item w-100">
+                                <div class="px-4 d-flex align-items-center custom-nav-item" style="height:55px">
+                                    <div class="nav-link w-100 px-0 text-decoration-none text-muted fs-7">last_update(timestamp)</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item w-100">
+                <div class="px-3 d-flex align-items-center custom-nav-item" style="height:60px">
+                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link w-100 px-0 align-middle d-flex justify-content-between text-decoration-none text-muted">
+                        <i class="bi bi-clipboard-check"></i><span class="ms-2 fs-7">Parameter</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                    </a>
+                </div>
+                <ul class="collapse nav flex-column ms-1" id="submenu2">
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center custom-nav-item gap-4" style="height:55px">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadio" id="b-tips-radio" value="0" checked>
+                                <label class="form-check-label text-black" for="b-tips-radio">
+                                    B-TIPS
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadio" id="i-tips-radio" value="1">
+                                <label class="form-check-label text-black" for="i-tips-radio">
+                                    I-TIPS
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item w-100" id="b-tips-input">
+                        <div class="px-3 d-flex align-items-center custom-nav-item gap-4" style="height:55px">
+                            <label for="b-tips-number" class="text-black">number</label>
+                            <input type="text" id="b-tips-number" class="form-control" value="5">
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item w-100">
+                <div class="px-3 d-flex align-items-center custom-nav-item" style="height:60px">
+                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link w-100 px-0 align-middle d-flex justify-content-between text-decoration-none text-muted">
+                        <i class="bi bi-gear-fill"></i><span class="ms-2 fs-7">Setting</span><i class="bi bi-chevron-down fs-7 ms-auto chevron-icon"></i>
+                    </a>
+                </div>
+                <ul class="collapse nav flex-column ms-1" id="submenu3">
+                    <li class="nav-item w-100">
+                        <div class="px-3 d-flex align-items-center" style="height:55px">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="switch-compare-qep">
+                                <label class="form-check-label text-black" for="switch-compare-qep">Compare with QEP</label>
+                            </div>
+                        </div>
+                        <div class="px-3 d-flex align-items-center" style="height:55px">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="switch-visualize-others">
+                                <label class="form-check-label text-black" for="switch-visualize-others">Visualize Difference with Other Plans</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</aside>
+</body>
+</html>
