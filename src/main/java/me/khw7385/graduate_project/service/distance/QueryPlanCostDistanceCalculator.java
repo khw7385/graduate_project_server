@@ -7,7 +7,7 @@ public class QueryPlanCostDistanceCalculator {
     public static QueryPlanCostDistanceCalculator getInstance(){
         return INSTANCE;
     }
-    public double calculate(QueryPlan queryPlan1, QueryPlan queryPlan2, double MaxCost, double minCost) {
-        return Math.abs(queryPlan1.getCost() - queryPlan2.getCost()) / MaxCost - minCost;
+    public double calculate(QueryPlan queryPlan1, QueryPlan queryPlan2, double maxCost, double minCost) {
+        return Math.abs(queryPlan1.getCost() - queryPlan2.getCost()) / (maxCost - minCost);
     }
 }

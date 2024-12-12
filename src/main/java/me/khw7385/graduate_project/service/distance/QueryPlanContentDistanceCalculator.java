@@ -14,7 +14,7 @@ public class QueryPlanContentDistanceCalculator {
         return (double)2 * editDistance / (queryPlan1.getContents().size() + queryPlan2.getContents().size() + editDistance);
     }
 
-    private double calculateEditDistance(QueryPlan queryPlan1, QueryPlan queryPlan2){
+    public double calculateEditDistance(QueryPlan queryPlan1, QueryPlan queryPlan2){
         List<String> contentsOfQueryPlan1 = deriveContents(queryPlan1);
         List<String> contentsOfQueryPlan2 = deriveContents(queryPlan2);
         int [][] dp = new int[contentsOfQueryPlan1.size() + 1][contentsOfQueryPlan2.size() + 1];
@@ -41,7 +41,7 @@ public class QueryPlanContentDistanceCalculator {
     }
 
     private List<String> deriveContents(QueryPlan queryPlan){
-        if(queryPlan.isContentsEmpty()) return queryPlan.getContents();
+        if(!queryPlan.isContentsEmpty()) return queryPlan.getContents();
         return queryPlan.extractAllContents();
     }
 }
