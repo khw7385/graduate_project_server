@@ -1,0 +1,28 @@
+.form-control:focus{
+    border-width: 2px;
+    font-size:16px;
+    box-shadow: none;
+}
+
+.btn-outline-success {
+    background-color: transparent !important; /* 강제로 투명 유지 */
+    border-color: #198754 !important;        /* 강제로 테두리 색 유지 */
+    color: #198754 !important;               /* 강제로 텍스트 색 유지 */
+}
+
+.textarea-alert{
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    display: none;
+}
+
+.click-tr{
+    cursor:pointer;
+}
+
+.click-tr:hover{
+    opacity: 0.5;
+}
